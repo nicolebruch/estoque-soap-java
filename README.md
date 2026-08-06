@@ -1,2 +1,2 @@
-# Programa-o-WEB-II-
+# Programação WEB II.
 Repositório para compartilharmos sobre nossos trabalhos nesta disciplina.  
