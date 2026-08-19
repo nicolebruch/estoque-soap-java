@@ -64,5 +64,16 @@ public class ProdutoController {
         }
 
         produtos.remove(produto);
+
+    }
+
+    public List<Produto> listarPorEstoque(Integer estoqueId) {
+        List<Produto> resultado = new ArrayList<>();
+        for (Produto produto : produtos.values()) {
+            if (produto.getEstoqueId() != null && produto.getEstoqueId().equals(estoqueId)) {
+                resultado.add(produto);
+            }
+        }
+        return resultado;
     }
 }

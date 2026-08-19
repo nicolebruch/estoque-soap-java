@@ -10,16 +10,18 @@ public class Produto {
     private String descricao;
     private double preco;
     private int quantidadeMinima;
+    private Integer estoqueId;
 
     public Produto() {
     }
 
-    public Produto(int id, String nome, String descricao, double preco, int quantidadeMinima) {
+    public Produto(int id, String nome, String descricao, double preco, int quantidadeMinima, Integer estoqueId) {
         setId(id);
         setNome(nome);
         setDescricao(descricao);
         setPreco(preco);
         setQuantidadeMinima(quantidadeMinima);
+        setEstoqueId(estoqueId);
     }
 
     public int getId() {
@@ -80,5 +82,21 @@ public class Produto {
         }
 
         this.quantidadeMinima = quantidadeMinima;
+
+    }
+
+    public Integer getEstoqueId() {
+        return estoqueId;
+    }
+
+    public void setEstoqueId(Integer estoqueId) {
+        if (estoqueId == null) {
+            throw new CampoObrigatorioException("o estoqueId do produto é obrigatório");
+        }
+        if (estoqueId <= 0) {
+            throw new InformacaoInvalidaException("o estoqueId deve ser maior que zero");
+        }
+        this.estoqueId = estoqueId;
+
     }
 }
