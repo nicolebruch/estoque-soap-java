@@ -14,7 +14,7 @@ public class EstoqueController {
     private final Map<Integer, Estoque> estoques = new HashMap<>();
     private int proximoId = 1;
 
-    public Estoque cadastrar(String nome, String localizacao, int quantidadeAtual) throws CampoObrigatorioException, InformacaoInvalidaException{
+    public Estoque cadastrar(String nome, String localizacao, int quantidadeAtual) throws CampoObrigatorioException, InformacaoInvalidaException {
         Estoque estoque = new Estoque(proximoId, nome, localizacao, quantidadeAtual);
         estoques.put(estoque.getId(), estoque);
         proximoId++;
@@ -32,7 +32,7 @@ public class EstoqueController {
         return lista;
     }
 
-    public Estoque atualizar(Integer id, String nome, String localizacao, int quantidadeAtual) throws CampoObrigatorioException, InformacaoInvalidaException{
+    public Estoque atualizar(Integer id, String nome, String localizacao, int quantidadeAtual) throws CampoObrigatorioException, InformacaoInvalidaException {
         Estoque estoque = consultar(id);
         estoque.setNome(nome);
         estoque.setLocalizacao(localizacao);
@@ -40,7 +40,7 @@ public class EstoqueController {
         return estoque;
     }
 
-    public boolean excluir (Integer id) throws InformacaoInvalidaException{
+    public boolean excluir(Integer id) throws InformacaoInvalidaException {
         consultar(id);
         estoques.remove(id);
         return true;
