@@ -6,7 +6,6 @@ import br.com.estoque.model.Estoque;
 import br.com.estoque.model.Produto;
 
 import javax.jws.WebService;
-import java.util.List;
 
 @WebService(endpointInterface = "br.com.estoque.service.EstoqueService")
 public class EstoqueServiceImpl implements EstoqueService {
@@ -30,8 +29,8 @@ public class EstoqueServiceImpl implements EstoqueService {
     }
 
     @Override
-    public List<Produto> listarProdutos() {
-        return produtoController.listar();
+    public Produto[] listarProdutos() {
+        return produtoController.listar().toArray(new Produto[0]);
     }
 
     @Override
@@ -45,8 +44,8 @@ public class EstoqueServiceImpl implements EstoqueService {
     }
 
     @Override
-    public List<Produto> listarProdutosPorEstoque(Integer estoqueId) {
-        return produtoController.listarPorEstoque(estoqueId);
+    public Produto[] listarProdutosPorEstoque(Integer estoqueId) {
+        return produtoController.listarPorEstoque(estoqueId).toArray(new Produto[0]);
     }
 
     @Override
@@ -60,8 +59,8 @@ public class EstoqueServiceImpl implements EstoqueService {
     }
 
     @Override
-    public List<Estoque> listarEstoques() {
-        return estoqueController.listarTodos();
+    public Estoque[] listarEstoques() {
+        return estoqueController.listarTodos().toArray(new Estoque[0]);
     }
 
     @Override
